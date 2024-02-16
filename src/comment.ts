@@ -30,7 +30,7 @@ export class CommentController {
     }
 
     const tag = this.getCommentTag();
-    const messageWithTag = `${tag}\n${message}`;
+    const messageWithTag = `${tag}\n${message}`.substring(0,65536);
     let previousComment;
     if (inputs.updateComment) {
       previousComment = await this.fetchPreviousComment(
